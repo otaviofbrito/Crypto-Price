@@ -45,34 +45,37 @@ def exit_fullscreen(event):
 root = tk.Tk()
 root.attributes("-fullscreen", True)  
 root.configure(bg="black")
+root.geometry("320x240")
+font = ("Arial", 24, "bold")
+
 
 btc_image = Image.open(btc_path) 
-btc_image = btc_image.resize((100, 100), Image.LANCZOS)
+btc_image = btc_image.resize((20, 20), Image.LANCZOS)
 btc_photo = ImageTk.PhotoImage(btc_image)
 
 eth_image = Image.open(eth_path) 
-eth_image = eth_image.resize((100, 100), Image.LANCZOS)
+eth_image = eth_image.resize((20, 20), Image.LANCZOS)
 eth_photo = ImageTk.PhotoImage(eth_image)
 
 frame = tk.Frame(root, bg="black")
 frame.place(relx=0.5, rely=0.5, anchor="center")
 
 btc_frame = tk.Frame(frame, bg="black")
-btc_frame.grid(row=0, column=0, pady=20)
+btc_frame.grid(row=0, column=0, pady=10)
 
 btc_icon = tk.Label(btc_frame, image=btc_photo, bg="black")
-btc_icon.grid(row=0, column=0, padx=20)
+btc_icon.grid(row=0, column=0, padx=10)
 
-btc_label = tk.Label(btc_frame, text="Loading...", font=("Arial", 80, "bold"), fg="white", bg="black")
+btc_label = tk.Label(btc_frame, text="Loading...", font=("Arial", 10, "bold"), fg="white", bg="black")
 btc_label.grid(row=0, column=1)
 
 eth_frame = tk.Frame(frame, bg="black")
-eth_frame.grid(row=1, column=0, pady=20)
+eth_frame.grid(row=1, column=0, pady=10)
 
 eth_icon = tk.Label(eth_frame, image=eth_photo, bg="black")
-eth_icon.grid(row=0, column=0, padx=20)
+eth_icon.grid(row=0, column=0, padx=10)
 
-eth_label = tk.Label(eth_frame, text="Loading...", font=("Arial", 80, "bold"), fg="white", bg="black")
+eth_label = tk.Label(eth_frame, text="Loading...", font=("Arial", 10, "bold"), fg="white", bg="black")
 eth_label.grid(row=0, column=1)
 
 root.bind("<Escape>", exit_fullscreen)  
