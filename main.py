@@ -46,18 +46,18 @@ def get_crypto_prices():
                 eth_symbol = "▼" 
                 eth_symbol_color = "red"
 
-        btc_label.config(text=f"BTC: ${btc_price_str}")
+        btc_label.config(text=f" ${btc_price_str}")
         btc_symbol_label.config(text=btc_symbol, fg=btc_symbol_color)
 
-        eth_label.config(text=f"ETH: ${eth_price_str}")
+        eth_label.config(text=f" ${eth_price_str}")
         eth_symbol_label.config(text=eth_symbol, fg=eth_symbol_color)
 
         prev_prices_btc.append(btc_price)
         prev_prices_eth.append(eth_price)
         
     except Exception as e:
-        btc_label.config(text="[ERROR]", fg="red")
-        eth_label.config(text="[ERROR]", fg="red")
+        btc_label.config(text=" [ERROR]", fg="red")
+        eth_label.config(text=" [ERROR]", fg="red")
 
     root.after(300000, get_crypto_prices)  # 5 min
 
